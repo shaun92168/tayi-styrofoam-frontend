@@ -1,0 +1,45 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.styrofoamFormat-container {
+    display: flex;
+    align-items: center;
+}
+
+.orderNum-container {
+    margin: 10px;
+}
+
+.firstFormat-container {
+    display: flex;
+    margin: 10px;
+}
+
+.secondFormat-container {
+    display: flex;
+    justify-content: end;
+    margin: 10px;
+}
+
+.orderNum-input {
+    height: 20px;
+}
+
+.size-input {
+    height: 20px;
+    width: 100px;
+}
+
+.add-btn {
+    margin: 10px;
+    height: 20px;
+}
+
+.alert-message {
+    margin: 2px;
+    padding: 0px;
+    font-size: 12px;
+    color: red;
+}

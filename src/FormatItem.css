@@ -1,0 +1,7 @@
+.FormatItem-container {
+    display: flex;
+}
+
+.delete-btn:hover {
+    color: brown;
+}

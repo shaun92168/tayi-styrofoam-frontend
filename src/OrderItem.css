@@ -1,0 +1,48 @@
+.OrderItem-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.OrderNum-container {
+    display: flex;
+}
+
+.OrderNum {
+    width: 45vw;
+    font-size: 28px;
+}
+
+.Format-container {
+    display: flex;
+    border: black;
+    border-style: none none dotted none;
+    flex-direction: column;
+}
+
+.StyrofoamFormat-container {
+    display: flex;
+}
+
+.amount {
+    width: 45vw;
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.CutFormat-container {
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+
+.delete-order-btn {
+    position: absolute;
+    align-self: flex-end;
+    height: 100%;
+    top: 0px;
+    right: 0px;
+    width: 10vw;
+    padding: 10px;
+}
