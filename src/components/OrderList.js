@@ -167,7 +167,7 @@ function OrderList(props) {
     const calculateCutFormats = () => {
         var cutFormats = createCutFormats()
         console.log(cutFormats)
-        axios.post(`http://localhost:8080/styrofoam/cutFormats`, cutFormats).then(json => {
+        axios.post(`http://ec2-54-238-221-188.ap-northeast-1.compute.amazonaws.com:8080/styrofoam/cutFormats`, cutFormats).then(json => {
             var newOrders = orders
             var current_order = 0
             var current_styrofoamFormat = 0
