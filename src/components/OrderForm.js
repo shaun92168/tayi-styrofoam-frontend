@@ -99,7 +99,15 @@ function OrderForm(props) {
             height: height,
             amount1: amount1,
             amount2: amount2,
-            cutFormats: []
+            cutFormat: {
+                cutFormatFoamThickness: 0,
+                cutFormatFoamWidth: 0,
+                cutFormatSet: 0,
+                cutFormatSurplus: 0,
+                cutFormatThicknessNum: 0,
+                cutFormatWidth: 0,
+                cutFormatWidthNum: 0
+            }
         }
         const newStyrofoamFormats = [...styrofoamFormats, newStyrofoamFormat]
         setStyrofoamFormats(newStyrofoamFormats)
@@ -107,9 +115,9 @@ function OrderForm(props) {
 
     const deleteFormat = (id) => {
         var newStyrofoamFormats = []
-        for(var i = 0; i < styrofoamFormats.length; i++) {
-            if(styrofoamFormats[i].id != id) {
-                if(styrofoamFormats[i].id > id) {
+        for (var i = 0; i < styrofoamFormats.length; i++) {
+            if (styrofoamFormats[i].id != id) {
+                if (styrofoamFormats[i].id > id) {
                     styrofoamFormats[i].id--
                 }
                 newStyrofoamFormats.push(styrofoamFormats[i])
@@ -129,7 +137,7 @@ function OrderForm(props) {
                         {hasSecondOrder ? "1. " : null}
                     訂單編號&nbsp;
                     <input type="text" className="orderNum-input" id="OrderNum1" onChange={handleOrderNum1} value={orderNum1} />
-                        <input type="checkbox" onChange={handleHasSecondOrder} value={hasSecondOrder} id="hasSecondOrder" tabindex="-1"/>
+                        <input type="checkbox" onChange={handleHasSecondOrder} value={hasSecondOrder} id="hasSecondOrder" tabindex="-1" />
                         <label for="hasSecondOrder">雙編號</label>
                     </div>
 
