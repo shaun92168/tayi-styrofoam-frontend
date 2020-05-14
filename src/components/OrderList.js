@@ -4,122 +4,122 @@ import OrderItem from './OrderItem'
 import axios from "axios"
 
 function OrderList(props) {
+    const exampleOrders = [
+        {
+            id: 1,
+            orderNum1: "#1111",
+            hasTwoOrder: true,
+            styrofoamFormats: [
+                {
+                    width: "250",
+                    thickness: "180",
+                    height: "40",
+                    amount1: "200",
+                    amount2: "200",
+                    cutFormat: {
+                        cutFormatFoamThickness: 180,
+                        cutFormatFoamWidth: 40,
+                        cutFormatSet: 4,
+                        cutFormatSurplus: 0,
+                        cutFormatThicknessNum: 4,
+                        cutFormatWidth: 100,
+                        cutFormatWidthNum: 25
+                    }
+                },
+                {
+                    width: "285",
+                    thickness: "80",
+                    height: "35",
+                    amount1: "400",
+                    amount2: "400",
+                    cutFormat: {
+                        cutFormatFoamThickness: 0,
+                        cutFormatFoamWidth: 0,
+                        cutFormatSet: 0,
+                        cutFormatSurplus: 0,
+                        cutFormatThicknessNum: 0,
+                        cutFormatWidth: 0,
+                        cutFormatWidthNum: 0
+                    }
+                }
+            ],
+            orderNum2: "#2222"
+        },
+        {
+            id: 2,
+            orderNum1: "#1001",
+            hasTwoOrder: false,
+            styrofoamFormats: [
+                {
+                    width: "200",
+                    thickness: "200",
+                    height: "55",
+                    amount1: "640",
+                    amount2: "0",
+                    cutFormat: {
+                        cutFormatFoamThickness: 0,
+                        cutFormatFoamWidth: 0,
+                        cutFormatSet: 0,
+                        cutFormatSurplus: 0,
+                        cutFormatThicknessNum: 0,
+                        cutFormatWidth: 0,
+                        cutFormatWidthNum: 0
+                    }
+                },
+                {
+                    width: "280",
+                    thickness: "280",
+                    height: "12",
+                    amount1: "320",
+                    amount2: "0",
+                    cutFormat: {
+                        cutFormatFoamThickness: 0,
+                        cutFormatFoamWidth: 0,
+                        cutFormatSet: 0,
+                        cutFormatSurplus: 0,
+                        cutFormatThicknessNum: 0,
+                        cutFormatWidth: 0,
+                        cutFormatWidthNum: 0
+                    }
+                },
+                {
+                    width: "285",
+                    thickness: "80",
+                    height: "55",
+                    amount1: "320",
+                    amount2: "0",
+                    cutFormat: {
+                        cutFormatFoamThickness: 0,
+                        cutFormatFoamWidth: 0,
+                        cutFormatSet: 0,
+                        cutFormatSurplus: 0,
+                        cutFormatThicknessNum: 0,
+                        cutFormatWidth: 0,
+                        cutFormatWidthNum: 0
+                    }
+                },
+                {
+                    width: "285",
+                    thickness: "130",
+                    height: "55",
+                    amount1: "320",
+                    amount2: "0",
+                    cutFormat: {
+                        cutFormatFoamThickness: 0,
+                        cutFormatFoamWidth: 0,
+                        cutFormatSet: 0,
+                        cutFormatSurplus: 0,
+                        cutFormatThicknessNum: 0,
+                        cutFormatWidth: 0,
+                        cutFormatWidthNum: 0
+                    }
+                }
+            ],
+            orderNum2: ""
+        }
+    ]
     const [calculated, setCalculated] = useState(false)
-    const [orders, setOrders] = useState(
-        [
-            {
-                id: 1,
-                orderNum1: "#1111",
-                hasTwoOrder: true,
-                styrofoamFormats: [
-                    {
-                        width: "250",
-                        thickness: "180",
-                        height: "40",
-                        amount1: "200",
-                        amount2: "200",
-                        cutFormat: {
-                            cutFormatFoamThickness: 180,
-                            cutFormatFoamWidth: 40,
-                            cutFormatSet: 4,
-                            cutFormatSurplus: 0,
-                            cutFormatThicknessNum: 4,
-                            cutFormatWidth: 100,
-                            cutFormatWidthNum: 25
-                        }
-                    },
-                    {
-                        width: "285",
-                        thickness: "80",
-                        height: "35",
-                        amount1: "400",
-                        amount2: "400",
-                        cutFormat: {
-                            cutFormatFoamThickness: 0,
-                            cutFormatFoamWidth: 0,
-                            cutFormatSet: 0,
-                            cutFormatSurplus: 0,
-                            cutFormatThicknessNum: 0,
-                            cutFormatWidth: 0,
-                            cutFormatWidthNum: 0
-                        }
-                    }
-                ],
-                orderNum2: "#2222"
-            },
-            {
-                id: 2,
-                orderNum1: "#1001",
-                hasTwoOrder: false,
-                styrofoamFormats: [
-                    {
-                        width: "200",
-                        thickness: "200",
-                        height: "55",
-                        amount1: "640",
-                        amount2: "0",
-                        cutFormat: {
-                            cutFormatFoamThickness: 0,
-                            cutFormatFoamWidth: 0,
-                            cutFormatSet: 0,
-                            cutFormatSurplus: 0,
-                            cutFormatThicknessNum: 0,
-                            cutFormatWidth: 0,
-                            cutFormatWidthNum: 0
-                        }
-                    },
-                    {
-                        width: "280",
-                        thickness: "280",
-                        height: "12",
-                        amount1: "320",
-                        amount2: "0",
-                        cutFormat: {
-                            cutFormatFoamThickness: 0,
-                            cutFormatFoamWidth: 0,
-                            cutFormatSet: 0,
-                            cutFormatSurplus: 0,
-                            cutFormatThicknessNum: 0,
-                            cutFormatWidth: 0,
-                            cutFormatWidthNum: 0
-                        }
-                    },
-                    {
-                        width: "285",
-                        thickness: "80",
-                        height: "55",
-                        amount1: "320",
-                        amount2: "0",
-                        cutFormat: {
-                            cutFormatFoamThickness: 0,
-                            cutFormatFoamWidth: 0,
-                            cutFormatSet: 0,
-                            cutFormatSurplus: 0,
-                            cutFormatThicknessNum: 0,
-                            cutFormatWidth: 0,
-                            cutFormatWidthNum: 0
-                        }
-                    },
-                    {
-                        width: "285",
-                        thickness: "130",
-                        height: "55",
-                        amount1: "320",
-                        amount2: "0",
-                        cutFormat: {
-                            cutFormatFoamThickness: 0,
-                            cutFormatFoamWidth: 0,
-                            cutFormatSet: 0,
-                            cutFormatSurplus: 0,
-                            cutFormatThicknessNum: 0,
-                            cutFormatWidth: 0,
-                            cutFormatWidthNum: 0
-                        }
-                    }
-                ],
-                orderNum2: ""
-            }
-        ])
+    const [orders, setOrders] = useState([])
 
     const addOrder = (orderNum1, orderNum2, styrofoamFormats) => {
         let hasTwoOrder = orderNum2 != ""
